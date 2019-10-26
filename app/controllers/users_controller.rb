@@ -3,18 +3,11 @@ class UsersController < ApplicationController
 	before_action :correct_user, only: [:edit, :update]
 
 	def index
-		#@book = Book.find(params[:id])
-		#@user = @book.user
 		@users = User.all
 		@user = current_user
 	end
 
 	def show
-		# @book = Book.find(params[:id])
-		# @user = @book.user
-		# @new_book = Book.new
-		# @finduser = User.find(params[:id])
-
 		@books = Book.where(user_id: params[:id])
 		@finduser = User.find(params[:id])
 		@user = User.find(params[:id])
